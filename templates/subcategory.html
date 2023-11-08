@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subcategories</title>
+</head>
+<body>
+
+<p style="font-size:42px"> {{ data }}</p>
+
+<div class="container-sm">
+    <div class="card-body">
+        <h2 class="card-title"></h2>
+        <table class="table table-dark">
+            <tbody>
+            {% for subcats in subcat %}
+                <tr onclick = "gen(this)">
+                    <td> <p style="color:purple;"> {{ subcats }} </p> </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
+<form action="/show_listings" method ="POST">
+    <p>find listings for this category!</p>
+    <button type="submit" class="btn btn-primary">SUBMIT</button>
+</form>
+<br>
+<a class="btn btn-success" href="/biddings" role="button">Go back.</a>
+</body>
+</html>
+
+<script type="text/javascript" charset="utf-8">
+    function gen(e){
+            var category_type = e.getElementsByTagName("td")["0"].innerText;
+
+            fetch(`http://127.0.0.1:5000/biddings`, {
+                method: "POST",
+                body: JSON.stringify(category_type),
+                headers: {
+                    "Content-Type": "application/json"
+            },
+                redirect: "follow"
+            })
+            .then(function(response) {
+                if (response.redirected) {
+                    window.location.href = response.url;
+                }
+            });
+        }
+</script>
+

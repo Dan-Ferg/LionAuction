@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CREATE NEW ACCOUNT</title>
+</head>
+<body>
+
+<div class="container-sm">
+    <div class="card-body">
+        <h2 class="card-title">Enter ID and Password</h2>
+        <form action="/createnew" method="POST">
+            <div class="form-group">
+                <label for="ID">ID</label>
+                <input type="text" id="ID" name="ID" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <input type="password" id="Password" name="Password" required class="form-control">
+            </div>
+
+
+            <label for="option">Role:</label>
+            <select name="option" id="option">
+                <option value="bidder">Bidder</option>
+                <option value="seller">Seller</option>
+                <option value="bidseller"> Bidder and Seller</option>
+            </select>
+
+            <input type="submit" value="Create new account">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

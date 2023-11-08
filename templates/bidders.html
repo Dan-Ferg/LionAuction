@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bidder Homepage</title>
+</head>
+<body>
+<h2> You are a bidder </h2>
+<br>
+<h2> Personal info</h2>
+<form action="/bidderInfo" method="GET">
+    <input type="submit" value="LOAD PERSONAL INFO">
+</form>
+<table class="table table-dark">
+    <tr>
+        <th scope="col"> Email</th>
+        <th scope="col"> First Name</th>
+        <th scope="col"> Last Name</th>
+        <th scope="col"> Gender</th>
+        <th scope="col"> Age</th>
+        <th scope="col"> Address ID</th>
+        <th scope="col"> Major</th>
+    </tr>
+    <tbody>
+    {% for a,b,c,d,e,f,g in result %}
+    <tr>
+        <td> {{ a }} </td>
+        <td> {{ b }} </td>
+        <td> {{ c }} </td>
+        <td> {{ d }} </td>
+        <td> {{ e }} </td>
+        <td> {{ f }} </td>
+        <td> {{ g }} </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<br>
+
+<form action="/bidedit3" method ="POST">
+    <label for="gender"> Edit Gender</label>
+    <input type="text" id="gender" name="gender" required class="form-control">
+    <button type="submit" class="btn btn-primary">SUBMIT</button>
+</form>
+<form action="/bidedit4" method ="POST">
+    <label for="age"> Edit Age</label>
+    <input type="text" id="age" name="age" required class="form-control">
+    <button type="submit" class="btn btn-primary">SUBMIT</button>
+</form>
+<form action="/bidedit5" method ="POST">
+    <label for="address"> Edit address ID</label>
+    <input type="text" id="address" name="address" required class="form-control">
+    <button type="submit" class="btn btn-primary">SUBMIT</button>
+</form>
+<form action="/bidedit6" method ="POST">
+    <label for="major"> Edit Major</label>
+    <input type="text" id="major" name="major" required class="form-control">
+    <button type="submit" class="btn btn-primary">SUBMIT</button>
+</form>
+<br>
+<a class="btn btn-success" href="/" role="button">LOGOUT</a>
+<br>
+<br>
+<form action = "/biddings" method="GET">
+    <b><button type="submit" class="btn btn-primary">GO TO BIDDINGS</button></b>
+</form>
+</body>
+</html>

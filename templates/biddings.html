@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biddings</title>
+    <script type="text/javascript" charset="utf-8">
+        function gen(e){
+            var category_type = e.getElementsByTagName("td")["0"].innerText;
+
+            fetch(`http://127.0.0.1:5000/biddings`, {
+                method: "POST",
+                body: JSON.stringify(category_type),
+                headers: {
+                    "Content-Type": "application/json"
+            },
+                redirect: "follow"
+            })
+            .then(function(response) {
+                if (response.redirected) {
+                    window.location.href = response.url;
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+
+<p style="font-size:42px">Categories</p>
+
+<div class="container-sm">
+    <div class="card-body">
+        <h2 class="card-title">Parent categories</h2>
+        <table class="table table-dark">
+            <tbody>
+            {% for parent in parents %}
+                <tr onclick = "gen(this)">
+                    <td> <p style="color:purple;"> {{ parent }} </p></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<br>
+<a class="btn btn-success" href="/" role="button">Logout</a>
+</body>
+</html>

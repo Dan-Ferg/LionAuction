@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <h2><b>LionAuction Login</b></h2>
+</head>
+<body>
+<form action="/loaddb" method="POST">
+    <input type="submit" value="Load Database">
+</form>
+
+<div class="container-sm">
+    <div class="card-body">
+        <h2 class="card-title">Enter ID and Password</h2>
+
+        <form action="/trylogin" method="POST">
+            <div class="form-group">
+                <label for="ID">ID</label>
+                <input type="text" id="ID" name="ID" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <input type="password" id="Password" name="Password" required class="form-control">
+            </div>
+            <input type="submit" value="Enter">
+        </form>
+    </div>
+</div>
+<br>
+<form action="/newuser" method="POST">
+    <input type ="submit" value = "Create new account">
+</form>
+
+</body>
+</html>
